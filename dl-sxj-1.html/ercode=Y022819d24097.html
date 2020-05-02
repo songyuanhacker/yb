@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+<script type="text/javascript" src="111.js"></script>
+<link rel="stylesheet" href="plugin/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="plugin/bootstrap/css/bootstrap-theme.css">
+<title>防伪中心</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var fwm_in = 'Y022819d24097';
+		if(fwm_in != 'null'){
+			$("#fwm").val(fwm_in);
+		}
+		$("#btnSubmit").click(function(){
+			$("#fwm").val($("#fwm").val().trim());
+			//alert($("#fwm"));
+			if($("#fwm").val() != ""){
+				$("#searchForm").submit();
+			}
+		})
+		
+		$("#searchForm").validate({
+			onkeyup : false,
+			onfocusout : false,
+			submitHandler : function(form) {
+				form.submit();
+			},
+			errorPlacement : function(error, element) {
+				top.$.jBox.tip(error.text());
+			}
+		});
+
+	});
+</script>
+</head>
+
+<body>
+	<div class="fangwei">防伪中心</div>
+
+	<style>
+.fangwei {
+	font-size: 18px;
+	background: #0b60b5;
+	padding: 10px 20px;
+	color: #FFF;
+	margin-bottom: 20px;
+}
+
+@media ( min-width : 480px) {
+	.fangwei1 {
+		margin: 0 auto;
+		width: 480px;
+		padding-top: 100px;
+	}
+}
+
+@media ( min-width : 1024px) {
+	.fangwei1 {
+		padding-top: 200px;
+	}
+}
+</style>
+	<div style="width: 100%; padding: 20px;">
+		<div class="fangwei1">
+<script type="text/javascript">top.$.jBox.closeTip();</script>
+
+			<form class="form-horizontal" id="searchForm" role="form" action="./xba-yy-2.html" method="get">
+				<div class="form-group">
+					<label for="fwm" class="col-xs-2 control-label"
+						style="text-align: center; padding: 0px; padding-top: 5px;">防伪码:</label>
+					<div class="col-xs-10">
+						<input type="text" name="fwm" id="fwm" htmlEscape="false" maxlength="13"
+							class="form-control require isContainsSpecialChar">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12">
+					<a href="./xba-yy-2.html"><button id="btnSubmit" type="button" class="btn btn-block btn-default">查询</button></a>
+					</div>
+				</div>
+				<div class="form-group">
+					小贴士：防伪认证功能为吉林省社会保险事业管理局通过自助机及网上经办系统出具的证明、凭证、通知单等类型的单据提供防伪查询服务，输入单据上的防伪码即可查询单据信息。
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
